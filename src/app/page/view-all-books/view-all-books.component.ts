@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-all-books',
@@ -35,7 +36,11 @@ export class ViewAllBooksComponent implements OnInit {
     this.http.delete(api, { responseType: "text" }).subscribe((responce: string) => {
       console.log(responce);
       this.loadBooks();
-      alert("Book Deleted!");
+      Swal.fire({
+        title: "Deleted",
+        text: "Book is Deleted",
+        icon: "success"
+      });
       this.selectedBook = null;
     });
   }
@@ -43,5 +48,13 @@ export class ViewAllBooksComponent implements OnInit {
   setSelectBook(book: any) {
     this.selectedBook = book;
     console.log("setSelectedBook" + book.id);
+  }
+  saveBook(){
+    let postApi = "http://localhost:8080/book/add";
+    this.http.post(postApi,this.selectedBook).subscribe(data=>{
+    console.log("Saved");
+    this.loadBooks();
+    this.selectedBook={};
+    })
   }
 }
