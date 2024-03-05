@@ -3,6 +3,7 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -14,6 +15,8 @@ export class RegisterComponent implements OnInit{
 
   private http;
   public countryList:any;
+  public selectedCountry:any;
+  public selectedCountryCode:any;
 
   constructor(private httpCliant:HttpClient){
     this.http = httpCliant;
@@ -28,5 +31,8 @@ export class RegisterComponent implements OnInit{
       this.countryList=res;
       console.log(res);
     });
+  }
+  setSelectedCountry(country:any){
+    this.setSelectedCountry=country;
   }
 }
