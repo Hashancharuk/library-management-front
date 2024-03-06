@@ -3,13 +3,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../../common/nav/nav.component";
 
 @Component({
-  selector: 'app-view-all-books',
-  standalone: true,
-  styleUrls: ['./view-all-books.component.css'],
-  imports: [HttpClientModule, FormsModule, CommonModule],
-  templateUrl: './view-all-books.component.html'
+    selector: 'app-view-all-books',
+    standalone: true,
+    styleUrls: ['./view-all-books.component.css'],
+    templateUrl: './view-all-books.component.html',
+    imports: [HttpClientModule, FormsModule, CommonModule, NavComponent]
 })
 export class ViewAllBooksComponent implements OnInit {
   private http;
