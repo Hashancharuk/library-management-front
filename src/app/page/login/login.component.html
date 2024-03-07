@@ -1,4 +1,4 @@
-<main class="form-signin w-50 text-center">
+<main class="form-signin w-50 text-center mt-5">
     <form>
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
@@ -7,11 +7,11 @@
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
   
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="loginObj.email" [ngModelOptions]="{standalone:true}">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="loginObj.password" [ngModelOptions]="{standalone:true}">
         <label for="floatingPassword">Password</label>
       </div>
   
@@ -21,10 +21,13 @@
           Remember me
         </label>
       </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+      <button class="btn btn-primary w-100 py-2" type="submit" (click)="login()">Sign in</button>
+      <button type="button" class="btn"[routerLink]="['/sign-up']">Sign-up</button>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
     </form>
   </main>
+
+
 <!-- <div class="row"> 
     <div class="col-md-8">
         <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapers.com%2Fbook&psig=AOvVaw3zS4m_hpCo2167ktZQkGWU&ust=1708411447363000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCPCG4d3mtoQDFQAAAAAdAAAAABAE" alt="Description of Image">
